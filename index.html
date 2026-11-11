@@ -3,477 +3,525 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#030712">
+<meta name="theme-color" content="#050914">
 <title>Compassion Digital | Turning Ideas Into Digital Reality</title>
+<meta name="description" content="Compassion Digital builds modern, professional websites for businesses and individuals.">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+ --bg:#050914;
+ --panel:#0b1729;
+ --blue:#168bff;
+ --cyan:#65e5ff;
+ --white:#f5f9ff;
+ --muted:#a2b2c8;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- background:#030712;color:#fff;
- font-family:Arial,Helvetica,sans-serif;
- overflow-x:hidden
+ background:var(--bg);color:var(--white);
+ font-family:Inter,Arial,sans-serif;overflow-x:hidden;
 }
-:root{--blue:#36c5ff;--cyan:#a5efff}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
 #particles{
  position:fixed;inset:0;width:100%;height:100%;
- pointer-events:none;z-index:2
+ pointer-events:none;z-index:0;opacity:.5;
 }
-nav{
- position:fixed;z-index:20;top:0;width:100%;
- padding:20px 7%;display:flex;
+header{
+ position:fixed;top:0;width:100%;z-index:20;
+ padding:19px 7%;display:flex;
  justify-content:space-between;align-items:center;
- background:rgba(3,7,18,.75);
- backdrop-filter:blur(16px);
- border-bottom:1px solid #36c5ff25
+ background:rgba(5,9,20,.84);
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid rgba(101,229,255,.12);
 }
-.logo{font-size:19px;font-weight:900;letter-spacing:2px}
-.logo span{color:var(--blue)}
-nav a{color:#d5e7f7;text-decoration:none;
- margin-left:22px;font-size:11px;letter-spacing:1px}
-nav a:hover{color:var(--blue)}
-section{
- min-height:100vh;position:relative;
- padding:130px 8%;display:flex;
- flex-direction:column;justify-content:center;
- overflow:hidden
+.logo{font-size:21px;font-weight:900;letter-spacing:-1px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:25px;align-items:center}
+nav a{font-size:12px;color:#bdcbe0;transition:.3s}
+nav a:hover{color:var(--cyan)}
+.nav-btn,.main-btn{
+ padding:13px 21px;border:1px solid var(--cyan);
+ background:linear-gradient(110deg,#0875e8,#19c7e9);
+ color:white;border-radius:5px;font-size:12px;
+ font-weight:800;display:inline-block;transition:.3s;
 }
+.nav-btn:hover,.main-btn:hover{
+ transform:translateY(-4px);
+ box-shadow:0 0 25px #168bff88;
+}
+.menu{display:none;background:none;color:white;border:0;font-size:27px;cursor:pointer}
+section{position:relative;z-index:1;padding:105px 8%}
 .hero{
- background:linear-gradient(90deg,#030712f5,#0307129c),
- url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=90")
- center/cover;
+ min-height:100vh;display:flex;align-items:center;
+ padding-top:145px;overflow:hidden;
+ background:
+ linear-gradient(90deg,rgba(5,9,20,.97),rgba(5,9,20,.78),rgba(5,9,20,.48)),
+ url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=85') center/cover;
 }
-.hero:after{
+.hero:before{
  content:"";position:absolute;inset:0;
- background:radial-gradient(circle at 70% 45%,#168dff35,transparent 40%);
- pointer-events:none
+ background:linear-gradient(transparent 70%,var(--bg));
 }
-.grid{
- position:absolute;inset:0;
+.hero-grid{
+ position:absolute;inset:0;pointer-events:none;
  background-image:
- linear-gradient(#36c5ff13 1px,transparent 1px),
- linear-gradient(90deg,#36c5ff13 1px,transparent 1px);
+ linear-gradient(rgba(22,139,255,.09) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(22,139,255,.09) 1px,transparent 1px);
  background-size:55px 55px;
- transform:perspective(500px) rotateX(55deg) scale(1.8);
- transform-origin:bottom;
- animation:grid 7s linear infinite
+ transform:perspective(600px) rotateX(55deg) scale(2.2);
+ transform-origin:bottom;opacity:.4;
+ animation:gridmove 12s linear infinite;
 }
-@keyframes grid{
- to{background-position:0 55px}
-}
-.hero-content{position:relative;z-index:3;max-width:1000px}
+@keyframes gridmove{to{background-position:0 55px,55px 0}}
+.hero-content{position:relative;max-width:850px;z-index:2}
 .eyebrow{
- color:var(--blue);letter-spacing:6px;
- font-size:11px;margin-bottom:28px
+ color:var(--cyan);font-size:11px;
+ letter-spacing:4px;font-weight:800;margin-bottom:25px;
 }
-h1{
- font-size:clamp(48px,10vw,120px);
- line-height:.92;letter-spacing:-5px;
- font-weight:950
+.hero h1{
+ font-size:clamp(43px,8vw,91px);
+ line-height:1.02;letter-spacing:-5px;
+ font-weight:900;margin-bottom:25px;
 }
-.blue{color:var(--blue);text-shadow:0 0 35px #36c5ff70}
-.letter{
- display:inline-block;opacity:0;
- transform:translateY(35px) rotateX(70deg);
- animation:write .55s cubic-bezier(.2,.8,.2,1) forwards
+.gradient{
+ background:linear-gradient(90deg,#fff,#65e5ff,#168bff);
+ background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-@keyframes write{
- to{opacity:1;transform:translateY(0) rotateX(0)}
+.typing{
+ min-height:32px;font-size:clamp(16px,2.5vw,23px);
+ color:var(--cyan);font-weight:600;margin-bottom:22px;
 }
-.type-line{
- margin-top:28px;font-size:clamp(17px,2.5vw,26px);
- color:#e2f4ff;min-height:35px
+.hero p{max-width:570px;color:#c1ccdc;line-height:1.9;font-size:15px}
+.hero-actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:32px}
+.outline-btn{
+ border:1px solid rgba(255,255,255,.35);
+ padding:13px 22px;border-radius:5px;font-size:12px;
+ font-weight:700;transition:.3s;
 }
-.cursor{
- display:inline-block;background:var(--blue);
- width:2px;height:25px;vertical-align:middle;
- animation:blink .7s infinite
+.outline-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.scroll-note{margin-top:65px;font-size:10px;letter-spacing:3px;color:#8294ad}
+.scroll-note span{color:var(--cyan)}
+.orbit{
+ position:absolute;width:340px;height:340px;right:8%;top:25%;
+ border:1px solid rgba(101,229,255,.24);
+ border-radius:50%;box-shadow:0 0 70px #168bff22,inset 0 0 70px #168bff11;
+ animation:orbit 16s linear infinite;
 }
-@keyframes blink{50%{opacity:0}}
-.hero p{
- color:#c2d3e5;line-height:1.9;
- max-width:580px;margin-top:20px;font-size:16px
+.orbit:before,.orbit:after{
+ content:"";position:absolute;border:1px solid rgba(22,139,255,.25);
+ border-radius:50%;inset:30px;transform:rotateX(65deg);
 }
-.actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:35px}
-.btn{
- display:inline-block;padding:16px 27px;
- text-decoration:none;font-size:12px;
- font-weight:bold;letter-spacing:1px;
- transition:.3s;border-radius:3px
+.orbit:after{inset:65px;transform:rotateY(65deg)}
+.orbit-dot{
+ position:absolute;width:10px;height:10px;border-radius:50%;
+ background:var(--cyan);box-shadow:0 0 20px var(--cyan);
+ top:20px;left:50%;
 }
-.primary{
- background:var(--blue);color:#00101a;
- box-shadow:0 0 30px #36c5ff50
+@keyframes orbit{to{transform:rotate(360deg)}}
+.section-head{text-align:center;max-width:700px;margin:0 auto 55px}
+.kicker{font-size:10px;color:var(--cyan);letter-spacing:4px;font-weight:800}
+.section-head h2{
+ font-size:clamp(30px,5vw,52px);margin:17px 0;letter-spacing:-2px;
 }
-.primary:hover{transform:translateY(-5px);box-shadow:0 0 50px #36c5ff}
-.secondary{border:1px solid #ffffff65;color:white}
-.secondary:hover{border-color:var(--blue);color:var(--blue)}
-.scroll{
- position:absolute;bottom:28px;left:8%;
- color:#8baec8;font-size:10px;letter-spacing:4px;
- animation:float 2s infinite
-}
-@keyframes float{50%{transform:translateY(8px)}}
-
-/* CINEMATIC IMAGE SCENES */
-.showcase{
- align-items:center;text-align:center;
- background:#050d1b
-}
-.scene-tag{
- color:var(--blue);font-size:11px;
- letter-spacing:6px;margin-bottom:25px
-}
-.scene-title{
- font-size:clamp(36px,7vw,85px);
- font-weight:950;line-height:1.1;
- max-width:1050px
-}
-.scene-title .blue{display:inline}
-.scene-copy{
- max-width:650px;color:#a6bdd2;
- line-height:1.9;margin-top:25px
-}
-.photo{
- width:min(950px,100%);
- height:360px;margin-top:50px;
- position:relative;overflow:hidden;
- border:1px solid #36c5ff55;
- border-radius:9px;
- box-shadow:0 0 55px #168dff20
-}
-.photo img{
- width:100%;height:100%;object-fit:cover;
- animation:zoom 16s ease-in-out infinite alternate;
- filter:brightness(.7) saturate(1.2)
-}
-@keyframes zoom{
- from{transform:scale(1)}
- to{transform:scale(1.2)}
-}
-.photo:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(0deg,#030712b0,transparent 65%)
-}
-.photo-label{
- position:absolute;z-index:2;bottom:25px;left:25px;
- color:white;font-size:clamp(18px,3vw,30px);
- font-weight:900;letter-spacing:3px
-}
-.light{
- position:absolute;top:0;left:-100%;
- width:50%;height:100%;
- background:linear-gradient(90deg,transparent,#36c5ff28,transparent);
- transform:skewX(-20deg);
- animation:light 5s infinite
-}
-@keyframes light{to{left:150%}}
-
-/* SERVICES */
-.services{
- background:#030712;text-align:center;align-items:center
-}
-.service-grid{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:20px;width:100%;max-width:1100px;margin-top:55px
-}
+.section-head p{color:var(--muted);line-height:1.8;font-size:14px}
+.services{background:linear-gradient(180deg,#050914,#081426,#050914)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{
- min-height:250px;text-align:left;padding:30px;
- background:linear-gradient(145deg,#10233a,#07101e);
- border:1px solid #36c5ff35;
- position:relative;overflow:hidden;transition:.5s
+ position:relative;overflow:hidden;
+ background:linear-gradient(145deg,#102039,#091323);
+ border:1px solid rgba(101,229,255,.14);
+ padding:34px 27px;min-height:250px;transition:.4s;
 }
+.card:before{
+ content:"";position:absolute;top:0;left:-100%;height:2px;width:100%;
+ background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+ transition:.7s;
+}
+.card:hover:before{left:100%}
 .card:hover{
- transform:translateY(-12px) scale(1.02);
- border-color:var(--blue);
- box-shadow:0 20px 60px #168dff20
+ transform:translateY(-9px);border-color:var(--cyan);
+ box-shadow:0 15px 50px #168bff20;
 }
-.card small{color:var(--blue);letter-spacing:3px}
-.card h3{font-size:23px;margin:28px 0 15px}
-.card p{color:#9bb2c8;font-size:14px;line-height:1.8}
-.card:after{
- content:"";position:absolute;top:0;left:-100%;
- height:2px;width:100%;background:var(--blue);
- transition:.7s
+.number{font-size:11px;color:var(--cyan);letter-spacing:3px;margin-bottom:17px}
+.icon{font-size:30px;margin-bottom:25px}
+.card h3{font-size:19px;margin-bottom:13px}
+.card p{font-size:13px;line-height:1.8;color:var(--muted)}
+.showcase{background:#070e1b}
+.showcase-grid{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:35px;align-items:center;
 }
-.card:hover:after{left:0}
-
-/* FINAL */
+.showcase-image{
+ position:relative;overflow:hidden;height:390px;
+ border:1px solid rgba(101,229,255,.2);
+}
+.showcase-image img{
+ width:100%;height:100%;object-fit:cover;transition:transform 1s;
+}
+.showcase-image:hover img{transform:scale(1.09)}
+.showcase-copy h2{
+ font-size:clamp(30px,4vw,48px);margin:17px 0;letter-spacing:-2px;
+}
+.showcase-copy p{color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:24px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:25px 0}
+.feature{
+ padding:15px;background:#0d1b30;
+ border-left:2px solid var(--cyan);font-size:12px;
+}
+.feature span{color:var(--cyan);margin-right:7px}
+.process{background:linear-gradient(180deg,#050914,#0a1525)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.step{
+ padding:25px 20px;border-top:1px solid #2c5479;
+ background:linear-gradient(180deg,#0d1c30,transparent);
+}
+.step strong{font-size:34px;color:var(--cyan);opacity:.8}
+.step h3{font-size:16px;margin:18px 0 10px}
+.step p{font-size:12px;color:var(--muted);line-height:1.8}
+.project-section{background:#081426}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.project{
+ height:300px;position:relative;overflow:hidden;
+ border:1px solid rgba(101,229,255,.2);
+}
+.project img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.project:hover img{transform:scale(1.09)}
+.project-info{
+ position:absolute;bottom:0;left:0;width:100%;padding:25px;
+ background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+.project-info small{color:var(--cyan);letter-spacing:3px;font-size:10px}
+.project-info h3{font-size:21px;margin-top:8px}
+.about{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:50px;align-items:center;
+}
+.about h2{font-size:clamp(32px,5vw,53px);letter-spacing:-2px;margin:18px 0}
+.about p{font-size:14px;color:var(--muted);line-height:1.9}
+.about-image{height:350px;overflow:hidden;border:1px solid #1e577e}
+.about-image img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.about-image:hover img{transform:scale(1.08)}
 .contact{
- align-items:center;text-align:center;
- background:linear-gradient(#030712b8,#030712f0),
- url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85")
- center/cover fixed
+ text-align:center;
+ background:
+ linear-gradient(90deg,#050914ee,#06162aee),
+ url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85') center/cover;
 }
 .contact h2{
- font-size:clamp(40px,8vw,100px);
- font-weight:950;line-height:1.05
+ font-size:clamp(35px,6vw,65px);
+ margin:20px auto;max-width:800px;letter-spacing:-3px;
 }
-.contact p{color:#b2c8db;margin:25px 0}
+.contact p{
+ color:var(--muted);line-height:1.8;
+ margin:0 auto 30px;max-width:550px;font-size:14px;
+}
+.whatsapp{
+ display:inline-flex;align-items:center;gap:10px;
+ background:#087e57;color:white;padding:17px 25px;
+ border-radius:5px;font-weight:800;font-size:13px;
+ box-shadow:0 0 25px #00d58c33;transition:.3s;
+}
+.whatsapp:hover{transform:scale(1.05);box-shadow:0 0 35px #00d58c77}
 footer{
- padding:30px 15px;text-align:center;
- background:#02040a;color:#7893ad;
- font-size:12px;position:relative;z-index:3
+ position:relative;z-index:1;padding:30px 8%;
+ border-top:1px solid #ffffff14;
+ display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+ color:#8294ad;font-size:11px;
 }
-
-/* SCROLL ANIMATION */
+footer span{color:var(--cyan)}
 .reveal{
- opacity:0;transform:translateY(65px);
- transition:1s ease
+ opacity:0;transform:translateY(35px);
+ transition:opacity .8s,transform .8s;
 }
 .reveal.show{opacity:1;transform:translateY(0)}
-@media(max-width:750px){
- nav{padding:17px 5%}
- nav a{margin-left:9px;font-size:9px}
- .logo{font-size:14px}
- section{padding:110px 7%}
- h1{letter-spacing:-2px}
- .service-grid{grid-template-columns:1fr}
- .photo{height:230px}
- .contact{background-attachment:scroll}
+.whatsapp-float{
+ position:fixed;right:20px;bottom:20px;z-index:30;
+ background:#087e57;color:white;padding:14px 19px;
+ border-radius:40px;font-size:12px;font-weight:800;
+ box-shadow:0 0 25px #00d58c55;transition:.3s;
+}
+.whatsapp-float:hover{transform:translateY(-5px)}
+@media(max-width:850px){
+ .orbit{right:-150px;opacity:.35}
+ .cards{grid-template-columns:1fr 1fr}
+ .process-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+ header{padding:17px 6%}
+ .menu{display:block}
+ nav{
+  display:none;position:absolute;top:65px;left:0;width:100%;
+  padding:25px;background:#071326;
+  flex-direction:column;align-items:flex-start;
+ }
+ nav.open{display:flex}
+ .hero{padding-left:7%;padding-right:7%;min-height:95vh}
+ .hero h1{letter-spacing:-3px}
+ section{padding:85px 7%}
+ .cards,.showcase-grid,.about,.projects{grid-template-columns:1fr}
+ .process-grid{grid-template-columns:1fr 1fr}
+ .showcase-image{height:270px}
+ .about-image{height:260px}
+ .features{grid-template-columns:1fr 1fr}
+ footer{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
- *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+ *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
-
 <body>
+
 <canvas id="particles"></canvas>
 
-<nav>
- <div class="logo">COMPASSION<span>.</span></div>
- <div>
+<header>
+ <a class="logo" href="#home">COMPASSION<span>.</span></a>
+ <button class="menu" id="menu" aria-label="Open menu">☰</button>
+ <nav id="nav">
   <a href="#home">HOME</a>
   <a href="#services">SERVICES</a>
-  <a href="#contact">CONTACT</a>
- </div>
-</nav>
+  <a href="#work">OUR WORK</a>
+  <a href="#about">ABOUT</a>
+  <a href="#contact" class="nav-btn">GET A WEBSITE</a>
+ </nav>
+</header>
 
-<!-- OPENING -->
+<main>
 <section class="hero" id="home">
- <div class="grid"></div>
+ <div class="hero-grid"></div>
+ <div class="orbit"><div class="orbit-dot"></div></div>
  <div class="hero-content">
-  <div class="eyebrow">WELCOME TO A NEW DIGITAL ERA</div>
-  <h1 id="mainTitle"></h1>
-  <div class="type-line">
-   <span id="typing"></span><span class="cursor"></span>
-  </div>
-  <p>
-   We transform ideas into powerful digital experiences.
-   Discover professional website design and development
-   that gives your business a place to shine online.
+  <div class="eyebrow reveal">THE FUTURE OF YOUR ONLINE PRESENCE</div>
+  <h1 id="heroTitle">COMPASSION<br><span class="gradient">DIGITAL.</span></h1>
+  <div class="typing" id="typing"></div>
+  <p class="reveal">
+   Your business deserves more than just a name.
+   We create professional, modern websites that help businesses
+   build their identity, reach more people and stand out online.
   </p>
-  <div class="actions">
-   <a class="btn primary" href="#contact">START YOUR PROJECT ↗</a>
-   <a class="btn secondary" href="#services">EXPLORE OUR WORLD</a>
+  <div class="hero-actions reveal">
+   <a href="#contact" class="main-btn">START YOUR PROJECT ↗</a>
+   <a href="#services" class="outline-btn">EXPLORE OUR SERVICES</a>
   </div>
- </div>
- <div class="scroll">SCROLL TO DISCOVER ↓</div>
-</section>
-
-<!-- SCENE 1 -->
-<section class="showcase reveal">
- <div class="scene-tag">01 — THE VISION</div>
- <h2 class="scene-title animated-title"
- data-text="EVERY GREAT IDEA STARTS WITH A VISION."></h2>
- <p class="scene-copy">
-  Your business has a story. Your website should tell it
-  in a way people remember.
- </p>
- <div class="photo">
-  <img loading="lazy"
-  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85"
-  alt="Global digital network">
-  <div class="light"></div>
-  <div class="photo-label">A WORLD OF POSSIBILITIES.</div>
+  <div class="scroll-note">SCROLL TO EXPLORE <span>↓</span></div>
  </div>
 </section>
 
-<!-- SCENE 2 -->
-<section class="showcase reveal">
- <div class="scene-tag">02 — THE EXPERIENCE</div>
- <h2 class="scene-title animated-title"
- data-text="DON'T JUST EXIST ONLINE. MAKE AN IMPACT."></h2>
- <p class="scene-copy">
-  Capture attention. Build trust. Create a digital
-  experience that makes people want to know more.
- </p>
- <div class="photo">
-  <img loading="lazy"
-  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=85"
-  alt="Creative technology team">
-  <div class="light"></div>
-  <div class="photo-label">CREATIVITY MEETS TECHNOLOGY.</div>
+<section class="services" id="services">
+ <div class="section-head reveal">
+  <div class="kicker">01 / WHAT WE CREATE</div>
+  <h2>Digital experiences that <span class="gradient">make an impact.</span></h2>
+  <p>We help businesses and individuals establish a professional online presence through modern website solutions.</p>
  </div>
-</section>
-
-<!-- SCENE 3 -->
-<section class="showcase reveal">
- <div class="scene-tag">03 — THE FUTURE</div>
- <h2 class="scene-title animated-title"
- data-text="YOUR NEXT CHAPTER STARTS HERE."></h2>
- <p class="scene-copy">
-  A strong online presence can open doors to new
-  customers, new opportunities and new growth.
- </p>
- <div class="photo">
-  <img loading="lazy"
-  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85"
-  alt="Electronic technology and circuits">
-  <div class="light"></div>
-  <div class="photo-label">BUILD WHAT COMES NEXT.</div>
- </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services reveal" id="services">
- <div class="scene-tag">04 — WHAT WE CREATE</div>
- <h2 class="scene-title animated-title"
- data-text="WE BUILD YOUR DIGITAL FUTURE."></h2>
- <div class="service-grid">
-  <div class="card">
-   <small>01 / DESIGN</small>
+ <div class="cards">
+  <article class="card reveal">
+   <div class="number">01 / DESIGN</div><div class="icon">✦</div>
    <h3>Website Design</h3>
-   <p>Modern, creative websites designed around your brand and your audience.</p>
-  </div>
-  <div class="card">
-   <small>02 / DEVELOPMENT</small>
-   <h3>Web Development</h3>
-   <p>Responsive websites designed for phones, tablets and computers.</p>
-  </div>
-  <div class="card">
-   <small>03 / PRESENCE</small>
+   <p>Beautiful, modern and carefully designed websites that represent your brand and make a strong first impression.</p>
+  </article>
+  <article class="card reveal">
+   <div class="number">02 / DEVELOPMENT</div><div class="icon">⌘</div>
+   <h3>Website Development</h3>
+   <p>Functional websites built with responsive layouts and smooth experiences across phones, tablets and computers.</p>
+  </article>
+  <article class="card reveal">
+   <div class="number">03 / BUSINESS</div><div class="icon">◈</div>
    <h3>Business Websites</h3>
-   <p>Help your business establish a professional online identity.</p>
+   <p>Give your business a digital home where customers can discover your services and contact you.</p>
+  </article>
+  <article class="card reveal">
+   <div class="number">04 / MOBILE</div><div class="icon">▣</div>
+   <h3>Mobile-Friendly Websites</h3>
+   <p>Professional layouts designed to work beautifully on smartphones, tablets and desktop computers.</p>
+  </article>
+  <article class="card reveal">
+   <div class="number">05 / LANDING PAGES</div><div class="icon">↗</div>
+   <h3>Landing Pages</h3>
+   <p>Focused pages that introduce your business, products, services and special offers.</p>
+  </article>
+  <article class="card reveal">
+   <div class="number">06 / CREATIVE</div><div class="icon">✧</div>
+   <h3>Creative Experiences</h3>
+   <p>Distinctive visual designs, animations and interactive details that make your brand memorable.</p>
+  </article>
+ </div>
+</section>
+
+<section class="showcase" id="work">
+ <div class="showcase-grid">
+  <div class="showcase-image reveal">
+   <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85" alt="Creative team collaborating on a digital project">
+  </div>
+  <div class="showcase-copy reveal">
+   <div class="kicker">02 / OUR APPROACH</div>
+   <h2>Your business deserves a <span class="gradient">digital identity.</span></h2>
+   <p>People often discover businesses online before making contact. A professional website gives your brand a place to showcase what it offers and make a lasting impression.</p>
+   <div class="features">
+    <div class="feature"><span>✦</span> Modern design</div>
+    <div class="feature"><span>✦</span> Responsive layouts</div>
+    <div class="feature"><span>✦</span> Brand identity</div>
+    <div class="feature"><span>✦</span> Clear navigation</div>
+   </div>
+   <a href="#contact" class="main-btn">LET'S BUILD YOUR WEBSITE ↗</a>
   </div>
  </div>
 </section>
 
-<!-- FINAL BRAND REVEAL -->
-<section class="contact reveal" id="contact">
- <div class="scene-tag">05 — YOUR DIGITAL JOURNEY</div>
- <h2 class="animated-title"
- data-text="LET'S CREATE SOMETHING EXTRAORDINARY."></h2>
- <p>Compassion Digital — Turning Ideas Into Digital Reality.</p>
- <a class="btn primary"
- href="https://wa.me/27643582350?text=Hello%20Compassion%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20website.">
- LET'S TALK ON WHATSAPP ↗
- </a>
- <p>+27 64 358 2350</p>
+<section class="process">
+ <div class="section-head reveal">
+  <div class="kicker">03 / HOW IT WORKS</div>
+  <h2>From idea to <span class="gradient">online reality.</span></h2>
+  <p>We keep the process clear and straightforward, from your first message to your website launch.</p>
+ </div>
+ <div class="process-grid">
+  <div class="step reveal"><strong>01</strong><h3>Let's Talk</h3><p>Tell us about your business and what you want your website to achieve.</p></div>
+  <div class="step reveal"><strong>02</strong><h3>Plan & Design</h3><p>We plan the layout, style and content around your business identity.</p></div>
+  <div class="step reveal"><strong>03</strong><h3>Build</h3><p>We develop your website and make sure it works across different screens.</p></div>
+  <div class="step reveal"><strong>04</strong><h3>Launch</h3><p>Your completed website goes online so people can discover your business.</p></div>
+ </div>
 </section>
+
+<section class="project-section">
+ <div class="section-head reveal">
+  <div class="kicker">04 / DIGITAL POSSIBILITIES</div>
+  <h2>Imagine what your <span class="gradient">website could become.</span></h2>
+  <p>Every brand is different. Your website should reflect what makes your business special.</p>
+ </div>
+ <div class="projects">
+  <div class="project reveal">
+   <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85" alt="Retail and online shopping">
+   <div class="project-info"><small>BUSINESS EXPERIENCE</small><h3>Retail & Online Stores</h3></div>
+  </div>
+  <div class="project reveal">
+   <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="Professional business workspace">
+   <div class="project-info"><small>BRAND PRESENCE</small><h3>Company Websites</h3></div>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="about">
+  <div class="reveal">
+   <div class="kicker">05 / ABOUT COMPASSION DIGITAL</div>
+   <h2>Ideas deserve to be <span class="gradient">seen.</span></h2>
+   <p>Compassion Digital is focused on helping businesses and individuals build their online presence through professional website design and development.</p>
+   <br>
+   <p>Our vision is simple: make the digital world more accessible, one website at a time.</p>
+  </div>
+  <div class="about-image reveal">
+   <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85" alt="Digital technology and electronic components">
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="kicker reveal">06 / LET'S CREATE SOMETHING</div>
+ <h2 class="reveal">Your next big idea starts <span class="gradient">here.</span></h2>
+ <p class="reveal">Ready to give your business a professional online presence? Contact Compassion Digital and let's discuss your website.</p>
+ <a class="whatsapp reveal" href="https://wa.me/27643582350?text=Hello%20Compassion%20Digital%2C%20I%20am%20interested%20in%20getting%20a%20website." target="_blank" rel="noopener">✆ &nbsp; CHAT WITH US ON WHATSAPP</a>
+ <p style="margin-top:18px;color:#c4d5e8">+27 64 358 2350</p>
+</section>
+</main>
 
 <footer>
- © <span id="year"></span> Compassion Digital. All rights reserved.
+ <div><strong>COMPASSION<span>.</span></strong> DIGITAL</div>
+ <div>Turning Ideas Into Digital Reality.</div>
+ <div>© <span id="year"></span> Compassion Digital. All rights reserved.</div>
 </footer>
 
+<a class="whatsapp-float" href="https://wa.me/27643582350?text=Hello%20Compassion%20Digital" target="_blank" rel="noopener">✆ WhatsApp</a>
+
 <script>
-// Write every character of a heading
-function writeLetters(element,text,speed=55){
- element.innerHTML="";
- let delay=0;
- [...text].forEach(char=>{
-  const span=document.createElement("span");
-  span.className="letter";
-  span.textContent=char===" "?"\u00a0":char;
-  span.style.animationDelay=delay+"ms";
-  element.appendChild(span);
-  delay+=speed;
- });
-}
+// Mobile navigation
+const menu=document.getElementById("menu");
+const nav=document.getElementById("nav");
+menu.addEventListener("click",()=>nav.classList.toggle("open"));
+document.querySelectorAll("nav a").forEach(a=>{
+ a.addEventListener("click",()=>nav.classList.remove("open"));
+});
 
-// Main logo headline
-const title=document.getElementById("mainTitle");
-const first=document.createElement("div");
-const second=document.createElement("div");
-second.className="blue";
-title.append(first,second);
-writeLetters(first,"COMPASSION",75);
-setTimeout(()=>writeLetters(second,"DIGITAL.",75),900);
-
-// Self-writing tagline
+// Rotating typewriter message
 const phrases=[
  "Turning Ideas Into Digital Reality.",
  "Your Business Deserves To Be Seen.",
- "Create Your Digital Future."
+ "Build Your Digital Identity.",
+ "Make Your First Impression Count."
 ];
-let phrase=0,index=0,deleting=false;
 const typing=document.getElementById("typing");
-
-function typeLoop(){
- const current=phrases[phrase];
- typing.textContent=current.substring(0,index);
-
+let phraseIndex=0,charIndex=0,deleting=false;
+function typeText(){
+ const phrase=phrases[phraseIndex];
+ typing.textContent=phrase.substring(0,charIndex);
  if(!deleting){
-  index++;
-  if(index>current.length){
+  charIndex++;
+  if(charIndex>phrase.length){
    deleting=true;
-   setTimeout(typeLoop,1500);
+   setTimeout(typeText,1600);
    return;
   }
  }else{
-  index--;
-  if(index<0){
-   index=0;
+  charIndex--;
+  if(charIndex<0){
    deleting=false;
-   phrase=(phrase+1)%phrases.length;
+   phraseIndex=(phraseIndex+1)%phrases.length;
+   charIndex=0;
   }
  }
- setTimeout(typeLoop,deleting?30:70);
+ setTimeout(typeText,deleting?35:75);
 }
-setTimeout(typeLoop,2000);
+typeText();
 
-// Animate scene titles only when they enter the screen
-function revealTitle(element){
- if(element.dataset.done)return;
- element.dataset.done="yes";
- writeLetters(element,element.dataset.text,38);
-}
-
+// Reveal sections while scrolling
 const observer=new IntersectionObserver(entries=>{
  entries.forEach(entry=>{
   if(entry.isIntersecting){
    entry.target.classList.add("show");
-   const heading=entry.target.querySelector(".animated-title");
-   if(heading)revealTitle(heading);
+   observer.unobserve(entry.target);
   }
  });
-},{threshold:.2});
-
+},{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-// Floating digital particles
+// Animated particle network
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 let particles=[];
-
+let width,height;
 function resize(){
- canvas.width=innerWidth;
- canvas.height=innerHeight;
- particles=Array.from({length:65},()=>({
-  x:Math.random()*canvas.width,
-  y:Math.random()*canvas.height,
-  r:Math.random()*1.5+.3,
-  v:Math.random()*.4+.1
+ width=canvas.width=window.innerWidth;
+ height=canvas.height=window.innerHeight;
+ const count=Math.min(65,Math.floor(width/15));
+ particles=Array.from({length:count},()=>({
+  x:Math.random()*width,
+  y:Math.random()*height,
+  vx:(Math.random()-.5)*.35,
+  vy:(Math.random()-.5)*.35,
+  r:Math.random()*1.7+.5
  }));
 }
-addEventListener("resize",resize);
-resize();
-
 function animate(){
- ctx.clearRect(0,0,canvas.width,canvas.height);
- particles.forEach(p=>{
-  p.y-=p.v;
-  if(p.y<0){p.y=canvas.height;p.x=Math.random()*canvas.width}
+ ctx.clearRect(0,0,width,height);
+ for(let i=0;i<particles.length;i++){
+  const p=particles[i];
+  p.x+=p.vx;p.y+=p.vy;
+  if(p.x<0||p.x>width)p.vx*=-1;
+  if(p.y<0||p.y>height)p.vy*=-1;
   ctx.beginPath();
   ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-  ctx.fillStyle="rgba(54,197,255,.65)";
+  ctx.fillStyle="#65e5ff";
   ctx.fill();
- });
- requestAnimationFrame(animate);
-}
-animate();
-
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
-</body>
-</html>
+  for(let j=i+1;j<particles.length;j++){
+   const q=particles[j];
+   const dx=p.x-q.x,dy=p.y-q.y;
+   const distance=Math.sqrt(dx*dx+dy*dy);
+   if(distance<115){
+    ctx.beginPath();
+    ctx.moveTo(p.x,p.y);
+    ctx.lineTo(q.x,q.y);
+    ctx.strokeStyle="rgba(55,160,255,"+(1-distance/115)*.2+")";
+    ctx.lineWidth=.6;
+    ctx.stroke();
+   }
